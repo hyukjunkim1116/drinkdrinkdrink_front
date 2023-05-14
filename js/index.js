@@ -13,10 +13,10 @@ window.onload = async function () {
     imageBox.setAttribute("class", "img-box");
     imageBox.setAttribute("onclick", `moveDetail(${article.id})`);
 
-    if (article.image) {
-      imageBox.setAttribute("src", `${backend_base_url}${article.image}`);
-    } else {
+    if (!article.image || article.image == null) {
       imageBox.setAttribute("src", `${no_image}`);
+    } else {
+      imageBox.setAttribute("src", `${backend_base_url}${article.image}`);
     }
     contentBox.append(imageBox);
   });
